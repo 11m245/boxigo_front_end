@@ -22,13 +22,14 @@ function App() {
     console.log("resp", response);
 
     if (response.status === 200) {
-      console.log("api success");
+      // console.log("api success");
       const jsonData = await response.json();
-      console.log("api data", jsonData);
+      // console.log("api data", jsonData);
       setApiData(jsonData);
       setIsLoading(false);
       toast.success("data fetched");
     } else {
+      setIsLoading(false);
       toast.error("error in data fetch");
     }
   }

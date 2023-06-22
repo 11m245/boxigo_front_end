@@ -7,7 +7,7 @@ function InventoryDetails({ move }) {
     <>
       <div className="inventory-details-container">
         <div className="header-container d-flex justify-content-between align-items-center">
-          <h5>Inventory Details</h5>
+          <h5 className="fw-bold">Inventory Details</h5>
           <Button
             variant="contained"
             sx={{

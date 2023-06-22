@@ -5,7 +5,7 @@ function MyMoves({ apiData }) {
   return (
     <>
       <div className="myMovesContainer page">
-        <h2>My Moves</h2>
+        <h2 className="page-title">My Moves</h2>
         {Customer_Estimate_Flow.map((move) => (
           <Move move={move} key={move.estimate_id} />
         ))}

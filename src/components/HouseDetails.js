@@ -13,7 +13,7 @@ function HouseDetails({ move }) {
     <>
       <div className="house-details-container">
         <div className="header-container d-flex justify-content-between align-items-center">
-          <h5>House Details</h5>
+          <h5 className="fw-bold">House Details</h5>
           <Button
             variant="contained"
             sx={{
@@ -49,21 +49,23 @@ function HouseDetail({ type, data }) {
   const { floorNo, elevator, distance } = data;
   return (
     <>
-      <h6 style={{ color: "#ea4a38" }}>
+      <h6 className="fw-bold" style={{ color: "#ea4a38" }}>
         {type === "existing" ? "Existing House Details" : "New House Details"}
       </h6>
       <div className="house-detail-wrapper d-flex gap-5">
         <div className="column">
-          <h6>Floor No.</h6>
-          <h6>{floorNo}</h6>
+          <h6 className="fw-bold">Floor No.</h6>
+          <p className="m-0">{floorNo}</p>
         </div>
         <div className="column">
-          <h6>Elevator Available</h6>
-          <h6>{elevator}</h6>
+          <h6 className="fw-bold">Elevator Available</h6>
+          <p className="m-0">{elevator}</p>
         </div>
         <div className="column">
-          <h6>Distance from Elevator / Staircase to truck</h6>
-          <h6>{distance}</h6>
+          <h6 className="fw-bold">
+            Distance from Elevator / Staircase to truck
+          </h6>
+          <p className="m-0">{distance}</p>
         </div>
       </div>
     </>

@@ -76,11 +76,22 @@ min-height: 100%;
 
 .section-body-container{
   display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(4,minmax(100px, 200px));
+  gap: 60px;
+  grid-template-columns: repeat(4,minmax(200px,1fr));
 }
 
+.page-title{
+  font-weight: 700;
+}
+.row-title{
+  font-weight: 700;
+}
 
+.section-title{
+  background-color: #e5e5e5;
+  padding: 5px;
+  margin: 6px;
+}
 
 
 

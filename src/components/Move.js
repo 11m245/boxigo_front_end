@@ -29,7 +29,7 @@ function Move({ move }) {
       <div className="move-container mt-5 mx-2">
         <div className="from-to-row">
           <div className="from">
-            <h6>From</h6>
+            <h6 className="row-title">From</h6>
             <span>{moving_from}</span>
           </div>
 
@@ -42,11 +42,11 @@ function Move({ move }) {
             }}
           />
           <div className="to column">
-            <h6>To</h6>
+            <h6 className="row-title">To</h6>
             <span>{moving_to}</span>
           </div>
           <div className="request column">
-            <h6>Request#</h6>
+            <h6 className="row-title">Request#</h6>
             <span style={{ color: iconColor, fontWeight: "bold" }}>
               {estimate_id}
             </span>
@@ -92,7 +92,7 @@ function Move({ move }) {
                   }}
                 />
               }
-              title={moving_on}
+              title={new Date(moving_on).toLocaleString()}
               isEdit={true}
             />
             <FormControlLabel
@@ -101,6 +101,9 @@ function Move({ move }) {
                   checked={move_date_flexible === "0" ? true : false}
                   sx={{
                     color: iconColor,
+                    "&.Mui-checked": {
+                      color: iconColor,
+                    },
                   }}
                 />
               }
@@ -137,7 +140,8 @@ function Move({ move }) {
             />
             <b>Disclaimer</b>
             <span>
-              &nbsp; Please update your move date before two days of shifting
+              &nbsp; &nbsp; Please update your move date before two days of
+              shifting
             </span>
           </div>
         </div>
@@ -150,7 +154,7 @@ function Move({ move }) {
 function IconTitleComponent({ icon, title, isEdit }) {
   return (
     <>
-      <div className="icon-title-wrapper">
+      <div className="icon-title-wrapper d-flex gap-2">
         {icon}
         <span>{title}</span>
         {isEdit ? (
