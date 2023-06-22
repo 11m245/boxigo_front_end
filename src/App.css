@@ -59,6 +59,28 @@ min-height: 100%;
  font-weight: 700;
 }
 
+.column{
+  display: flex;
+  flex-direction: column;
+}
+.section-container .count{
+
+  background-color: #ea4a38;
+  color: #fff;
+  padding: auto;
+  border-radius: 70%;
+  width: 30px;
+  height: 30px;
+
+}
+
+.section-body-container{
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4,minmax(100px, 200px));
+}
+
+
 
 
 

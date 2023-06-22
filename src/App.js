@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { toast } from "react-toastify";
+import CircularProgress from "@mui/joy/CircularProgress";
+import Box from "@mui/joy/Box";
 
 import { MyMoves } from "./Pages/MyMoves";
 import { Layout } from "./Pages/Layout";
@@ -12,6 +14,7 @@ import { NotFound } from "./Pages/NotFound";
 
 function App() {
   const [apiData, setApiData] = useState({ Customer_Estimate_Flow: [] });
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getApiData() {
     const url = "http://test.api.boxigo.in/sample-data/";
@@ -23,6 +26,7 @@ function App() {
       const jsonData = await response.json();
       console.log("api data", jsonData);
       setApiData(jsonData);
+      setIsLoading(false);
       toast.success("data fetched");
     } else {
       toast.error("error in data fetch");
@@ -33,16 +37,31 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<MyMoves apiData={apiData} />} />
-          <Route path="my-moves" element={<MyMoves apiData={apiData} />} />
-          {/* <Route path="my-profile" element={<MyProfile />} />
+      {isLoading ? (
+        <Box
+          sx={{
+            height: "100%",
+            display: "flex",
+            gap: 2,
+            alignItems: "center",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <CircularProgress variant="solid" />
+        </Box>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<MyMoves apiData={apiData} />} />
+            <Route path="my-moves" element={<MyMoves apiData={apiData} />} />
+            {/* <Route path="my-profile" element={<MyProfile />} />
           <Route path="get-quote" element={<Quote />} />
           <Route path="logout" element={<Logout />} /> */}
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      )}
     </div>
   );
 }

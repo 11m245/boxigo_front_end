@@ -21,7 +21,6 @@ function Move({ move }) {
     moving_on,
     move_date_flexible,
     custom_status,
-    items,
   } = move;
   const iconColor = "#ea4a38";
   const [viewMoveDetails, setViewMoveDetails] = useState(false);
@@ -142,7 +141,7 @@ function Move({ move }) {
             </span>
           </div>
         </div>
-        {viewMoveDetails ? <AdditionalMoveDetails items={items} /> : null}
+        {viewMoveDetails ? <AdditionalMoveDetails move={move} /> : null}
       </div>
     </>
   );
